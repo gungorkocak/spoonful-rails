@@ -17,4 +17,12 @@ module Contentful
       @base_url = "#{@spaces_url}/#{@space_id}/environments/#{@environment_id}"
     end
   end
+
+  class ModelNotSerializable < StandardError
+    def initialize(model)
+      # rubocop:disable Metrics/LineLength
+      msg = "Model: #{model} given to Contentful::Entry does not implement self#to_model method."
+      super(msg)
+    end
+  end
 end
