@@ -63,7 +63,10 @@ module Contentful
       items = body['items']
       item = items.try(:first)
 
-      return nil if item.blank?
+      if item.blank?
+        msg = "Could not found contentful entry with id: #{id}"
+        raise Contentful::EntryNotFound, msg
+      end
 
       includes = body['includes']
       includes_hash = to_includes_hash(includes)
