@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/kk2bw5ojx476/environments/master/entries?access_token=7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c&content_type=recipe&include=0&sys.id=2E8bc3VcJmA8OgmQsageas
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.17.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature
+      access-control-allow-methods:
+      - GET,HEAD,OPTIONS
+      access-control-allow-origin:
+      - "*"
+      access-control-expose-headers:
+      - Etag
+      access-control-max-age:
+      - '86400'
+      cf-environment-id:
+      - master
+      cf-environment-uuid:
+      - 3e111988-d2b3-4647-a0a8-ed1215cbd839
+      cf-organization-id:
+      - 0OxgeKaTWSWzTukWE0scEe
+      cf-space-id:
+      - kk2bw5ojx476
+      content-type:
+      - application/vnd.contentful.delivery.v1+json
+      contentful-api:
+      - cda_cached
+      etag:
+      - W/"5460518222329046157"
+      server:
+      - Contentful
+      x-content-type-options:
+      - nosniff
+      x-contentful-region:
+      - us-east-1
+      content-length:
+      - '731'
+      accept-ranges:
+      - bytes
+      date:
+      - Mon, 21 Oct 2019 10:49:52 GMT
+      via:
+      - 1.1 varnish
+      age:
+      - '372'
+      connection:
+      - close
+      x-served-by:
+      - cache-mxp19827-MXP
+      x-cache:
+      - HIT
+      x-cache-hits:
+      - '1'
+      vary:
+      - Accept-Encoding
+      x-contentful-request-id:
+      - 45843c1d-cdd0-4bef-aa22-76b8551b7d25
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJBcnJheSIKICB9LAogICJ0b3RhbCI6IDEsCiAgInNraXAiOiAwLAogICJsaW1pdCI6IDEwMCwKICAiaXRlbXMiOiBbCiAgICB7CiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjogewogICAgICAgICAgInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJpZCI6ICJrazJidzVvang0NzYiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAiaWQiOiAiMkU4YmMzVmNKbUE4T2dtUXNhZ2VhcyIsCiAgICAgICAgInR5cGUiOiAiRW50cnkiLAogICAgICAgICJjcmVhdGVkQXQiOiAiMjAxOC0wNS0wN1QxMzozMDozNC4wNjZaIiwKICAgICAgICAidXBkYXRlZEF0IjogIjIwMTgtMDUtMDdUMTM6Mzc6MDEuNzYwWiIsCiAgICAgICAgImVudmlyb25tZW50IjogewogICAgICAgICAgInN5cyI6IHsKICAgICAgICAgICAgImlkIjogIm1hc3RlciIsCiAgICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgICAibGlua1R5cGUiOiAiRW52aXJvbm1lbnQiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAicmV2aXNpb24iOiAzLAogICAgICAgICJjb250ZW50VHlwZSI6IHsKICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgICAibGlua1R5cGUiOiAiQ29udGVudFR5cGUiLAogICAgICAgICAgICAiaWQiOiAicmVjaXBlIgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgImxvY2FsZSI6ICJlbi1VUyIKICAgICAgfSwKICAgICAgImZpZWxkcyI6IHsKICAgICAgICAidGl0bGUiOiAiR3JpbGxlZCBTdGVhayAmIFZlZ2V0YWJsZXMgd2l0aCBDaWxhbnRyby1KYWxhcGXDsW8gRHJlc3NpbmciLAogICAgICAgICJwaG90byI6IHsKICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgICAibGlua1R5cGUiOiAiQXNzZXQiLAogICAgICAgICAgICAiaWQiOiAiM1RKcDZhREFjTXc2eU1pRTgyT3kwSyIKICAgICAgICAgIH0KICAgICAgICB9LAogICAgICAgICJjYWxvcmllcyI6IDM0NSwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiV2FybWVyIHdlYXRoZXIgbWVhbnMgdGhlIHVzaGVyaW5nIGluIG9mIGdyaWxsIHNlYXNvbiBhbmQgdGhpcyByZWNpcGUgY29tcGxldGVseSBjZWxlYnJhdGVzIHRoZSBncmlsbCAob3IgZ3JpbGwgcGFuKSEgU3F1YXNoIGFuZCBncmVlbiBiZWFucyBhcmUgbmljZWx5IGNoYXJyZWQgdGhlbiB0YWtlIGEgYmF0aCBpbiBhIHplc3R5IGNpbGFudHJvLWphbGFwZcOxbyBkcmVzc2luZy4gQWZ0ZXIgdGhlIHN0ZWFrcyBhcmUgcGVyZmVjdGx5IHNlYXJlZCwgdGhlIHNhbWUgZHJlc3NpbmcgZG9lcyBkb3VibGUgZHV0eSBhcyBhIHRhc3R5IGZpbmlzaGluZyBzYXVjZS4gQSBmcmVzaCByYWRpc2ggc2FsYWQgdG9wcyBpdCBhbGwgb2ZmIGZvciBjcnVuY2ggYW5kIGEgYnVyc3Qgb2YgY29sb3IuIENvb2ssIHJlbGF4LCBhbmQgZW5qb3khIiwKICAgICAgICAiY2hlZiI6IHsKICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgICAibGlua1R5cGUiOiAiRW50cnkiLAogICAgICAgICAgICAiaWQiOiAiMVo4U3dXTW1TOEU4NElvZ2s0RTZpayIKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0KICAgIH0KICBdCn0K
+    http_version: 
+  recorded_at: Mon, 21 Oct 2019 10:49:52 GMT
+recorded_with: VCR 5.0.0

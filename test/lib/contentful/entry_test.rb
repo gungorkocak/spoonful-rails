@@ -41,4 +41,54 @@ module ContentfulTests
       end
     end
   end
+
+  class EntrySerializationTest < ActiveSupport::TestCase
+    class SerializableMockModel
+      def self.to_model(params = {})
+        OpenStruct.new(params)
+      end
+    end
+
+    def setup
+      Contentful.configure do |config|
+        config.spaces_url = 'https://cdn.contentful.com/spaces'
+        config.space_id = ENV['CONTENTFUL_SPACE_ID']
+        config.environment_id = ENV['CONTENTFUL_ENVIRONMENT_ID']
+        config.access_token = ENV['CONTENTFUL_ACCESS_TOKEN']
+      end
+
+      @model = SerializableMockModel
+      @entry = Contentful::Entry.new name: 'recipe', model: @model
+
+      VCR.insert_cassette self.method_name
+    end
+
+    def teardown
+      VCR.eject_cassette self.method_name
+    end
+
+    test "all serializes response to correct model" do
+      items = @entry.all!
+
+      items[0..10].each do |item|
+        assert item.id
+        assert item.updated_at
+        assert item.created_at
+        assert item.title
+        assert item.description
+        assert item.calories
+      end
+    end
+
+    test "one serializes response to correct model" do
+      item = @entry.one!('2E8bc3VcJmA8OgmQsageas')
+
+      assert item.id
+      assert item.updated_at
+      assert item.created_at
+      assert item.title
+      assert item.description
+      assert item.calories
+    end
+  end
 end

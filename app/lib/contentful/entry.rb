@@ -1,5 +1,7 @@
 module Contentful
   class Entry
+    include EntrySerializer
+
     attr_reader :name, :model, :conn
 
     def initialize(name:, model:)
@@ -11,6 +13,28 @@ module Contentful
       end
 
       @conn = build_conn
+    end
+
+    def all!
+      response = @conn.get('entries')
+      body = response.body
+      items = body['items']
+
+      return [] if items.blank?
+
+      serialize_collection_response(items)
+    end
+
+    def one!(id)
+      @conn.params['sys.id'] = id
+      response = @conn.get('entries')
+      body = response.body
+      items = body['items']
+      item = items.try(:first)
+
+      return nil if item.blank?
+
+      serialize_resource_response(item)
     end
 
     private
