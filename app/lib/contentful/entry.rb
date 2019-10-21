@@ -2,7 +2,7 @@ module Contentful
   class Entry
     include EntrySerializer
 
-    attr_reader :name, :model, :conn
+    attr_reader :name, :model, :conn, :embeds, :selection_fields
 
     def initialize(name:, model:)
       @name = name
@@ -15,6 +15,26 @@ module Contentful
       @conn = build_conn
     end
 
+    def includes(embeds = [])
+      @embeds = embeds
+      @conn.params['include'] = @embeds.present? ? 1 : 0
+
+      self
+    end
+
+    def select(fields = [])
+      @selection_fields = fields
+
+      if fields.present?
+        mapped_fields = fields.map { |f| "fields.#{f}" }
+        @conn.params['select'] = (['sys'] + mapped_fields).join(',')
+      else
+        @conn.params.except!('select')
+      end
+
+      self
+    end
+
     def all!
       response = @conn.get('entries')
       body = response.body
@@ -22,7 +42,10 @@ module Contentful
 
       return [] if items.blank?
 
-      serialize_collection_response(items)
+      includes = body['includes']
+      includes_hash = to_includes_hash(includes)
+
+      serialize_collection_response(items, includes_hash)
     end
 
     def one!(id)
@@ -34,7 +57,10 @@ module Contentful
 
       return nil if item.blank?
 
-      serialize_resource_response(item)
+      includes = body['includes']
+      includes_hash = to_includes_hash(includes)
+
+      serialize_resource_response(item, includes_hash)
     end
 
     private

@@ -40,6 +40,32 @@ module ContentfulTests
         entry = Contentful::Entry.new(name: 'my-entry', model: model)
       end
     end
+
+    test "includes adds conn include param" do
+      next_entry = @entry.includes([:chef, :photo])
+
+      assert next_entry.embeds == [:chef, :photo]
+      assert next_entry.conn.params['include'] == 1
+    end
+
+    test "select adds conn select param" do
+      next_entry = @entry.select([:title, :desc])
+
+      assert next_entry.selection_fields == [:title, :desc]
+      assert next_entry.conn.params['select'] == 'sys,fields.title,fields.desc'
+
+
+      next_entry = next_entry.select([:photo])
+
+      assert next_entry.selection_fields == [:photo]
+      assert next_entry.conn.params['select'] == 'sys,fields.photo'
+
+
+      next_entry = next_entry.select([])
+
+      assert next_entry.selection_fields == []
+      refute next_entry.conn.params['select']
+    end
   end
 
   class EntrySerializationTest < ActiveSupport::TestCase
@@ -80,6 +106,57 @@ module ContentfulTests
       end
     end
 
+    test "all includes embedded fields" do
+      items =
+        @entry
+          .select([:title, :photo, :chef, :tags])
+          .includes([:photo, :chef, :tags])
+          .all!
+
+      items[0..10].each do |item|
+        assert item.id
+        assert item.created_at
+        assert item.updated_at
+        assert item.title
+        assert item.photo[:id]
+        assert item.photo[:title]
+        assert item.photo[:file]['url']
+
+        if item.chef.present?
+          assert item.chef[:id]
+          assert item.chef[:name]
+        end
+
+        if item.tags.present?
+          item.tags.each do |tag|
+            assert tag[:id]
+            assert tag[:name]
+          end
+        end
+      end
+    end
+
+    test "all gets only selected fields" do
+      items =
+        @entry
+          .select([:title, :photo])
+          .includes([:photo])
+          .all!
+
+      items[0..10].each do |item|
+        assert item.id
+        assert item.created_at
+        assert item.updated_at
+        assert item.title
+        assert item.photo[:id]
+        assert item.photo[:title]
+        assert item.photo[:file]['url']
+        refute item.description
+        refute item.chef
+        refute item.tags
+      end
+    end
+
     test "one serializes response to correct model" do
       item = @entry.one!('2E8bc3VcJmA8OgmQsageas')
 
@@ -89,6 +166,53 @@ module ContentfulTests
       assert item.title
       assert item.description
       assert item.calories
+    end
+
+    test "one includes embedded fields" do
+      item =
+        @entry
+          .select([:title, :photo, :chef, :tags])
+          .includes([:photo, :chef, :tags])
+          .one!('2E8bc3VcJmA8OgmQsageas')
+
+      assert item.id
+      assert item.created_at
+      assert item.updated_at
+      assert item.title
+      assert item.photo[:id]
+      assert item.photo[:title]
+      assert item.photo[:file]['url']
+
+      if item.chef.present?
+        assert item.chef[:id]
+        assert item.chef[:name]
+      end
+
+      if item.tags.present?
+        item.tags.each do |tag|
+          assert tag[:id]
+          assert tag[:name]
+        end
+      end
+    end
+
+    test "one gets only selected fields" do
+      item =
+        @entry
+          .select([:title, :photo])
+          .includes([:photo])
+          .one!('2E8bc3VcJmA8OgmQsageas')
+
+      assert item.id
+      assert item.created_at
+      assert item.updated_at
+      assert item.title
+      assert item.photo[:id]
+      assert item.photo[:title]
+      assert item.photo[:file]['url']
+      refute item.description
+      refute item.chef
+      refute item.tags
     end
   end
 end

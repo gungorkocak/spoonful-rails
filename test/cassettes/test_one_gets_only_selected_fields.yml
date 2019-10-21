@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/kk2bw5ojx476/environments/master/entries?access_token=7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c&content_type=recipe&include=1&select=sys%2Cfields.title%2Cfields.photo&sys.id=2E8bc3VcJmA8OgmQsageas
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v0.17.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature
+      access-control-allow-methods:
+      - GET,HEAD,OPTIONS
+      access-control-allow-origin:
+      - "*"
+      access-control-expose-headers:
+      - Etag
+      access-control-max-age:
+      - '86400'
+      cf-environment-id:
+      - master
+      cf-environment-uuid:
+      - 3e111988-d2b3-4647-a0a8-ed1215cbd839
+      cf-organization-id:
+      - 0OxgeKaTWSWzTukWE0scEe
+      cf-space-id:
+      - kk2bw5ojx476
+      content-type:
+      - application/vnd.contentful.delivery.v1+json
+      contentful-api:
+      - cda_cached
+      etag:
+      - W/"10078096068286336299"
+      server:
+      - Contentful
+      x-content-type-options:
+      - nosniff
+      x-contentful-region:
+      - us-east-1
+      content-length:
+      - '768'
+      accept-ranges:
+      - bytes
+      date:
+      - Mon, 21 Oct 2019 11:07:31 GMT
+      via:
+      - 1.1 varnish
+      age:
+      - '0'
+      connection:
+      - close
+      x-served-by:
+      - cache-fra19162-FRA
+      x-cache:
+      - MISS
+      x-cache-hits:
+      - '0'
+      vary:
+      - Accept-Encoding
+      x-contentful-request-id:
+      - cebcea7e-8d14-4960-8cab-bc4ad384fad7
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJBcnJheSIKICB9LAogICJ0b3RhbCI6IDEsCiAgInNraXAiOiAwLAogICJsaW1pdCI6IDEwMCwKICAiaXRlbXMiOiBbCiAgICB7CiAgICAgICJmaWVsZHMiOiB7CiAgICAgICAgInRpdGxlIjogIkdyaWxsZWQgU3RlYWsgJiBWZWdldGFibGVzIHdpdGggQ2lsYW50cm8tSmFsYXBlw7FvIERyZXNzaW5nIiwKICAgICAgICAicGhvdG8iOiB7CiAgICAgICAgICAic3lzIjogewogICAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjogIkFzc2V0IiwKICAgICAgICAgICAgImlkIjogIjNUSnA2YURBY013NnlNaUU4Mk95MEsiCiAgICAgICAgICB9CiAgICAgICAgfQogICAgICB9LAogICAgICAic3lzIjogewogICAgICAgICJzcGFjZSI6IHsKICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgICAibGlua1R5cGUiOiAiU3BhY2UiLAogICAgICAgICAgICAiaWQiOiAia2syYnc1b2p4NDc2IgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgImlkIjogIjJFOGJjM1ZjSm1BOE9nbVFzYWdlYXMiLAogICAgICAgICJ0eXBlIjogIkVudHJ5IiwKICAgICAgICAiY3JlYXRlZEF0IjogIjIwMTgtMDUtMDdUMTM6MzA6MzQuMDY2WiIsCiAgICAgICAgInVwZGF0ZWRBdCI6ICIyMDE4LTA1LTA3VDEzOjM3OjAxLjc2MFoiLAogICAgICAgICJlbnZpcm9ubWVudCI6IHsKICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICJpZCI6ICJtYXN0ZXIiLAogICAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjogIkVudmlyb25tZW50IgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgInJldmlzaW9uIjogMywKICAgICAgICAiY29udGVudFR5cGUiOiB7CiAgICAgICAgICAic3lzIjogewogICAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjogIkNvbnRlbnRUeXBlIiwKICAgICAgICAgICAgImlkIjogInJlY2lwZSIKICAgICAgICAgIH0KICAgICAgICB9LAogICAgICAgICJsb2NhbGUiOiAiZW4tVVMiCiAgICAgIH0KICAgIH0KICBdLAogICJpbmNsdWRlcyI6IHsKICAgICJBc3NldCI6IFsKICAgICAgewogICAgICAgICJzeXMiOiB7CiAgICAgICAgICAic3BhY2UiOiB7CiAgICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAgICAgImxpbmtUeXBlIjogIlNwYWNlIiwKICAgICAgICAgICAgICAiaWQiOiAia2syYnc1b2p4NDc2IgogICAgICAgICAgICB9CiAgICAgICAgICB9LAogICAgICAgICAgImlkIjogIjNUSnA2YURBY013NnlNaUU4Mk95MEsiLAogICAgICAgICAgInR5cGUiOiAiQXNzZXQiLAogICAgICAgICAgImNyZWF0ZWRBdCI6ICIyMDE4LTA1LTA3VDEzOjMwOjA2Ljk2N1oiLAogICAgICAgICAgInVwZGF0ZWRBdCI6ICIyMDE4LTA1LTA3VDEzOjMwOjA2Ljk2N1oiLAogICAgICAgICAgImVudmlyb25tZW50IjogewogICAgICAgICAgICAic3lzIjogewogICAgICAgICAgICAgICJpZCI6ICJtYXN0ZXIiLAogICAgICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgICAgICJsaW5rVHlwZSI6ICJFbnZpcm9ubWVudCIKICAgICAgICAgICAgfQogICAgICAgICAgfSwKICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAibG9jYWxlIjogImVuLVVTIgogICAgICAgIH0sCiAgICAgICAgImZpZWxkcyI6IHsKICAgICAgICAgICJ0aXRsZSI6ICJTS1UxNTAzIEhlcm8gMTAyIDEgLTZhZGQ1MmViNGVlYzgzZjc4NTk3NGRkZWFjMzMxNmI3IiwKICAgICAgICAgICJmaWxlIjogewogICAgICAgICAgICAidXJsIjogIi8vaW1hZ2VzLmN0ZmFzc2V0cy5uZXQva2syYnc1b2p4NDc2LzNUSnA2YURBY013NnlNaUU4Mk95MEsvMmE0Y2RlM2MxYzdlMzc0MTY2ZGNjZTFlOTAwY2IzYzEvU0tVMTUwM19IZXJvXzEwMl9fMV8tNmFkZDUyZWI0ZWVjODNmNzg1OTc0ZGRlYWMzMzE2YjcuanBnIiwKICAgICAgICAgICAgImRldGFpbHMiOiB7CiAgICAgICAgICAgICAgInNpemUiOiAyMTYzOTEsCiAgICAgICAgICAgICAgImltYWdlIjogewogICAgICAgICAgICAgICAgIndpZHRoIjogMTAyMCwKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA2ODAKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJmaWxlTmFtZSI6ICJTS1UxNTAzX0hlcm9fMTAyX18xXy02YWRkNTJlYjRlZWM4M2Y3ODU5NzRkZGVhYzMzMTZiNy5qcGciLAogICAgICAgICAgICAiY29udGVudFR5cGUiOiAiaW1hZ2UvanBlZyIKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0KICAgIF0KICB9Cn0K
+    http_version: 
+  recorded_at: Mon, 21 Oct 2019 11:07:31 GMT
+recorded_with: VCR 5.0.0
