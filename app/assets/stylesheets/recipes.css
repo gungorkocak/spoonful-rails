@@ -1,0 +1,120 @@
+.recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.recipes-list > .full,
+.recipe-details > .full
+{
+  width: 100%;
+  padding: 20px 10px;
+}
+
+.recipes-list > .half {
+  width: 50%;
+  padding: 20px 10px;
+}
+
+.recipe-item {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.recipe-item, .recipe-item > img {
+  display: block;
+  border-radius: 20px;
+}
+
+.recipe-item > img {
+  transform: translateZ(0);
+  transition: transform .3s ease-in-out;
+}
+
+.recipe-item:hover > img {
+  transform: scale(1.03);
+}
+
+.recipe-item > .info {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px 40px;
+  color: white;
+  z-index: 2;
+}
+
+.recipe-item > .info > .title {
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.full .recipe-item > .info > .title {
+  font-size: 2em;
+}
+
+.recipe-item > .info > .tags-label,
+.recipe-item > .info > .chef-label,
+.recipe-item > .info > .chef {
+  margin-top: 10px;
+}
+
+.recipe-item > .info > .tag {
+  margin-right: 10px;
+  margin-top: 6px;
+  font-size: 0.8em;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.recipe-item > .info > .tags-label,
+.recipe-item > .info > .chef-label {
+  color: rgba(255, 255, 255, .7);
+  margin-right: 10px;
+}
+
+.recipe-item > .info > .chef-label {
+  margin-left: auto;
+}
+
+.recipe-body {
+  padding: 20px;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 16%, rgba(0,0,0,0.2) 32%, rgba(0,0,0,0) 64%);
+  z-index: 1;
+}
+
+@media screen and (max-width: 425px) {
+  .recipes-list > .full,
+  .recipes-list > .half {
+    padding: 10px 5px;
+  }
+
+  .recipe-item > .info {
+    padding: 10px;
+  }
+
+  .recipe-item > .info > .title {
+    font-size: 0.9em;
+  }
+
+  .full .recipe-item > .info > .title {
+    font-size: 1.2em;
+  }
+}

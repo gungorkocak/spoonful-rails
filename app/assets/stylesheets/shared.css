@@ -1,0 +1,86 @@
+a {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1024px;
+  min-height: 90vh;
+  margin: auto auto 40px auto;
+}
+
+.bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.bottom-nav > a {
+  font-size: 1.2em;
+}
+
+.spoonful-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 40px;
+  margin: 100px auto 40px auto;
+  max-width: 1024px;
+  border-top: 1px solid #F0F0F0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.spoonful-header .logo {
+  position: relative;
+  padding: 30px;
+  border-radius: 9999px;
+  border: 1px solid #BABABA;
+  width: 120px;
+  height: 120px;
+  margin-top: -80px;
+  background: white;
+}
+
+.spoonful-header .logo:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  right: 5px;
+  border-radius: 9999px;
+  border: 1px solid #BABABA;
+}
+
+.spoonful-header .logo > img {
+  width: 60px;
+  height: 60px;
+}
+
+.spoonful-header .sub-welcome {
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: bold;
+  color: #A0A0A0;
+  margin-top: 10px;
+}
+
+.spoonful-header .brand-name {
+  text-transform: lowercase;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #424242;
+}
+
+.section-title {
+  margin: auto;
+  font-size: 1.32em;
+  text-align: center;
+  margin: 10px;
+}
+
+p {
+  color: #424242;
+}

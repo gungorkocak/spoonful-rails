@@ -1,0 +1,11 @@
+<div class="<%= defined?(full_width) && full_width ? 'full' : 'half' %>">
+  <%= link_to recipe_path(recipe.id), class: 'recipe-item' do %>
+    <img src="<%= recipe.photo&.file&.url %>" />
+    <div class="dark-overlay"></div>
+    <div class="info">
+      <div class="title">
+        <%= recipe.title %>
+      </div>
+    </div>
+  <% end %>
+</div>

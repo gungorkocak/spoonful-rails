@@ -1,0 +1,12 @@
+<p class="section-title">
+  <%= t('.title') %>
+</p>
+
+<section class="recipes-list">
+  <% if @recipes.present? %>
+    <%= render(partial: 'recipe', object: @recipes.first, locals: { full_width: true }) %>
+    <%= render(partial: 'recipe', collection: @recipes[1..-1]) %>
+  <% else %>
+    <p>Could not found any recipes at the moment. Sorry :/</p>
+  <% end %>
+</section>

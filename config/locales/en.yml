@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  go_back: Go back
+  header:
+    welcome: Welcome to
+    brand: Spoonful
+  recipes:
+    index:
+      title: Select a recipe to follow
+    show:
+      title: Follow the recipe
+      tags: Tags
+      chef: Chef

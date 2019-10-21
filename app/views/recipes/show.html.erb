@@ -1,0 +1,39 @@
+<p class="section-title">
+  <%= t('.title') %>
+</p>
+
+<section class="recipe-details">
+  <div class="full">
+    <div class="recipe-item">
+      <img src="<%= @recipe.photo&.file&.url %>" />
+      <div class="dark-overlay"></div>
+      <div class="info">
+        <div class="title">
+          <%= @recipe.title %>
+        </div>
+        <div class="tags-label">
+          <%= t('.tags') %>:
+        </div>
+        <% @recipe.tags&.each do |tag| %>
+          <div class="tag">
+            #<%= tag.name %>
+          </div>
+        <% end %>
+        <div class="chef-label">
+          <%= t('.chef') %>:
+        </div>
+        <div class="chef">
+          <%= @recipe.chef&.name %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-body">
+    <%= simple_format(@recipe.description) %>
+  </div>
+  <footer class="bottom-nav">
+    <%= link_to recipes_path do %>
+      &#8592; <%= t('go_back') %>
+    <% end %>
+  </footer>
+</section>
