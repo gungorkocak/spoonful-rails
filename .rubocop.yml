@@ -9,3 +9,6 @@ Style/Documentation:
 
 Style/SymbolArray:
   Enabled: false
+
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: false

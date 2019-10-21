@@ -18,11 +18,23 @@ module Contentful
     end
   end
 
-  class ModelNotSerializable < StandardError
+  class ContentfulException < StandardError
+  end
+
+  class ModelNotSerializable < ContentfulException
     def initialize(model)
       # rubocop:disable Metrics/LineLength
       msg = "Model: #{model} given to Contentful::Entry does not implement self#to_model method."
       super(msg)
     end
+  end
+
+  class EntryNotFound < ContentfulException
+  end
+
+  class BadRequest < ContentfulException
+  end
+
+  class ApiError < ContentfulException
   end
 end

@@ -215,4 +215,92 @@ module ContentfulTests
       refute item.tags
     end
   end
+
+  class EntryNetworkTest < ActiveSupport::TestCase
+    class SerializableMockModel
+      def self.to_model(params = {})
+        OpenStruct.new(params)
+      end
+    end
+
+    def setup
+      VCR.turn_off!
+    end
+
+    def teardown
+      VCR.turn_on!
+    end
+
+    test "all raises NotFound when url is wrong" do
+      Contentful.configure do |config|
+        config.spaces_url = 'https://cdn.contentful.com/spaces'
+        config.space_id = 'wrong-space-id'
+        config.environment_id = ENV['CONTENTFUL_ENVIRONMENT_ID']
+        config.access_token = ENV['CONTENTFUL_ACCESS_TOKEN']
+      end
+
+      @model = SerializableMockModel
+      @entry = Contentful::Entry.new name: 'recipe', model: @model
+
+      @entry.all!
+      assert false
+
+    rescue Contentful::EntryNotFound
+      assert true
+    end
+
+    test "all raises NotFound when recipe is wrong" do
+      Contentful.configure do |config|
+        config.spaces_url = 'https://cdn.contentful.com/spaces'
+        config.space_id = ENV['CONTENTFUL_SPACE_ID']
+        config.environment_id = ENV['CONTENTFUL_ENVIRONMENT_ID']
+        config.access_token = ENV['CONTENTFUL_ACCESS_TOKEN']
+      end
+
+      @model = SerializableMockModel
+      @entry = Contentful::Entry.new name: 'wrong-recipe', model: @model
+
+      @entry.all!
+      assert false
+
+    rescue Contentful::BadRequest
+      assert true
+    end
+
+    test "one raises NotFound when url is wrong" do
+      Contentful.configure do |config|
+        config.spaces_url = 'https://cdn.contentful.com/spaces'
+        config.space_id = 'wrong-space-id'
+        config.environment_id = ENV['CONTENTFUL_ENVIRONMENT_ID']
+        config.access_token = ENV['CONTENTFUL_ACCESS_TOKEN']
+      end
+
+      @model = SerializableMockModel
+      @entry = Contentful::Entry.new name: 'recipe', model: @model
+
+      @entry.one!('2E8bc3VcJmA8OgmQsageas')
+      assert false
+
+    rescue Contentful::EntryNotFound
+      assert true
+    end
+
+    test "one raises NotFound when recipe is wrong" do
+      Contentful.configure do |config|
+        config.spaces_url = 'https://cdn.contentful.com/spaces'
+        config.space_id = ENV['CONTENTFUL_SPACE_ID']
+        config.environment_id = ENV['CONTENTFUL_ENVIRONMENT_ID']
+        config.access_token = ENV['CONTENTFUL_ACCESS_TOKEN']
+      end
+
+      @model = SerializableMockModel
+      @entry = Contentful::Entry.new name: 'wrong-recipe', model: @model
+
+      @entry.one!('2E8bc3VcJmA8OgmQsageas')
+      assert false
+
+    rescue Contentful::BadRequest
+      assert true
+    end
+  end
 end

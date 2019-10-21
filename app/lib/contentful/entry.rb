@@ -46,6 +46,14 @@ module Contentful
       includes_hash = to_includes_hash(includes)
 
       serialize_collection_response(items, includes_hash)
+    rescue Faraday::ResourceNotFound => e
+      Rails.logger.error e
+      raise Contentful::EntryNotFound
+
+    rescue Faraday::ClientError => e
+      Rails.logger.error e
+      raise Contentful::BadRequest, e if e.response[:status] < 500
+      raise Contentful::ApiError, e if e.response[:status] >= 500
     end
 
     def one!(id)
@@ -61,12 +69,21 @@ module Contentful
       includes_hash = to_includes_hash(includes)
 
       serialize_resource_response(item, includes_hash)
+    rescue Faraday::ResourceNotFound => e
+      Rails.logger.error e
+      raise Contentful::EntryNotFound
+
+    rescue Faraday::ClientError => e
+      Rails.logger.error e
+      raise Contentful::BadRequest, e if e.response[:status] < 500
+      raise Contentful::ApiError, e if e.response[:status] >= 500
     end
 
     private
 
     def build_conn
       Faraday.new conn_options do |conn|
+        conn.use Faraday::Response::RaiseError
         conn.use Faraday::HttpCache, store: Rails.cache, logger: Rails.logger
         conn.response :json, content_type: /\bjson$/
         conn.adapter Faraday.default_adapter
